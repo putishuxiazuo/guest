@@ -57,8 +57,10 @@ def event_manage(request):
 def search_name(request):
     username = request.session.get('username', '')
     search_name = request.GET.get("name", "")
-    search_name_bytes = search_name.encode(encoding="utf-8")
-    event_list = Event.objects.filter(name__contains=search_name_bytes)
+    print(search_name)
+    #search_name_bytes = search_name.encode(encoding="utf-8")
+    #print(search_name_bytes)
+    event_list = Event.objects.filter(name__contains=search_name)
     return render(request, "event_manage.html", {"user": username, "events": event_list})
 
 
@@ -86,8 +88,8 @@ def guest_manage(request):
 def search_phone(request):
     username = request.session.get('username', '')
     search_phone = request.GET.get("phone", "")
-    search_name_bytes = search_phone.encode(encoding="utf-8")
-    guest_list = Guest.objects.filter(phone__contains=search_name_bytes)
+    #search_name_bytes = search_phone.encode(encoding="utf-8")
+    guest_list = Guest.objects.filter(phone__contains=search_phone)
 
     paginator = Paginator(guest_list, 10)
     page = request.GET.get('page')

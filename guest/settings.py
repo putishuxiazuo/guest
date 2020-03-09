@@ -74,14 +74,14 @@ WSGI_APPLICATION = 'guest.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
-DATABASES = {
+'''DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
-}
+}'''
 
-'''
+
 # MySQL configuration reference
 
 DATABASES = {
@@ -91,13 +91,13 @@ DATABASES = {
         'PORT': '3306',
         'NAME': 'guest_dev',
         'USER': 'root',
-        'PASSWORD': '',
+        'PASSWORD': '951006',
         'OPTIONS': {
-            'init_command': "SET sql_mode='NO_ENGINE_SUBSTITUTION,NO_AUTO_CREATE_USER'",
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
         },
     }
 }
-'''
+
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
